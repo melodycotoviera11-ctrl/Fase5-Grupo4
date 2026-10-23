@@ -1,0 +1,72 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.14.7, pytest-9.1.1, pluggy-1.7.0 -- D:\II Semestre 2026\Calidad\Proyecto\Fase 5\Fase5_Persona2_Grupo4\Fase5_Persona2_Grupo4\fase5\venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: D:\II Semestre 2026\Calidad\Proyecto\Fase 5\Fase5_Persona2_Grupo4\Fase5_Persona2_Grupo4\fase5
+collecting ... collected 32 items
+
+pruebas/test_rf05_crear_reservacion.py::test_CP_RF05_01_creacion_valida PASSED [  3%]
+pruebas/test_rf05_crear_reservacion.py::test_CP_RF05_02_ids_unicos_automaticos PASSED [  6%]
+pruebas/test_rf08_disponibilidad.py::test_CP_RF08_01_disponible_sin_conflicto PASSED [  9%]
+pruebas/test_rf08_disponibilidad.py::test_CP_RF08_02_no_disponible_con_conflicto PASSED [ 12%]
+pruebas/test_rf08_disponibilidad.py::test_CP_RF08_03_consulta_no_modifica_almacenamiento PASSED [ 15%]
+pruebas/test_rn01_estudiante.py::test_CP_RN01_01_rechaza_estudiante_inexistente PASSED [ 18%]
+pruebas/test_rn01_estudiante.py::test_CP_RN01_02_rechaza_estudiante_inactivo PASSED [ 21%]
+pruebas/test_rn02_rn06_fecha_hora_duracion.py::test_CP_RN02_01_rechaza_fecha_pasada PASSED [ 25%]
+pruebas/test_rn02_rn06_fecha_hora_duracion.py::test_CP_RN02_02_rechaza_fecha_formato_o_valor_invalido PASSED [ 28%]
+pruebas/test_rn02_rn06_fecha_hora_duracion.py::test_CP_RN03_01_hoy_debe_iniciar_despues_hora_actual PASSED [ 31%]
+pruebas/test_rn02_rn06_fecha_hora_duracion.py::test_CP_RN04_01_rechaza_hora_no_completa PASSED [ 34%]
+pruebas/test_rn02_rn06_fecha_hora_duracion.py::test_CP_RN05_01_rechaza_antes_0800 PASSED [ 37%]
+pruebas/test_rn02_rn06_fecha_hora_duracion.py::test_CP_RN05_02_rechaza_fin_despues_2000 PASSED [ 40%]
+pruebas/test_rn02_rn06_fecha_hora_duracion.py::test_CP_RN05_03_acepta_fin_exactamente_2000 PASSED [ 43%]
+pruebas/test_rn02_rn06_fecha_hora_duracion.py::test_CP_RN06_01_acepta_duracion_1_y_2 PASSED [ 46%]
+pruebas/test_rn02_rn06_fecha_hora_duracion.py::test_CP_RN06_02_rechaza_duracion_fuera_1_o_2 PASSED [ 50%]
+pruebas/test_rn07_capacidad.py::test_CP_RN07_01_acepta_capacidad_exacta PASSED [ 53%]
+pruebas/test_rn07_capacidad.py::test_CP_RN07_02_rechaza_superior_capacidad PASSED [ 56%]
+pruebas/test_rn07_capacidad.py::test_CP_RN07_03_rechaza_cero_personas PASSED [ 59%]
+pruebas/test_rn07_capacidad.py::test_CP_RN07_04_rechaza_cantidad_decimal PASSED [ 62%]
+pruebas/test_rn08_sala.py::test_CP_RN08_01_rechaza_sala_fuera_servicio PASSED [ 65%]
+pruebas/test_rn09_superposicion.py::test_CP_RN09_01_superposicion_total PASSED [ 68%]
+pruebas/test_rn09_superposicion.py::test_CP_RN09_02_superposicion_parcial_inicio PASSED [ 71%]
+pruebas/test_rn09_superposicion.py::test_CP_RN09_03_superposicion_parcial_final PASSED [ 75%]
+pruebas/test_rn09_superposicion.py::test_CP_RN09_04_nueva_envuelve_existente PASSED [ 78%]
+pruebas/test_rn10_consecutivas.py::test_CP_RN10_01_permite_consecutiva_posterior PASSED [ 81%]
+pruebas/test_rn10_consecutivas.py::test_CP_RN10_02_permite_consecutiva_anterior PASSED [ 84%]
+pruebas/test_rn11_limite_activas.py::test_CP_RN11_01_maximo_tres_activas PASSED [ 87%]
+pruebas/test_rn11_limite_activas.py::test_CP_RN11_02_recurrencias_respetan_maximo_tres FAILED [ 90%]
+pruebas/test_rnf07_mantenibilidad.py::test_CP_RNF07_01_separacion_capas_identificable PASSED [ 93%]
+pruebas/test_rnf10_testabilidad.py::test_CP_RNF10_01_logica_sin_gui PASSED [ 96%]
+pruebas/test_rnf10_testabilidad.py::test_CP_RNF10_02_bd_aislada PASSED   [100%]
+
+================================== FAILURES ===================================
+______________ test_CP_RN11_02_recurrencias_respetan_maximo_tres ______________
+
+item = <Function test_CP_RN11_02_recurrencias_respetan_maximo_tres>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_runtest_call(item):
+        c = item.funcargs.get("chk")
+        try:
+            resultado = yield
+        except BaseException:
+            if c:
+                c.registrar()
+            raise
+        if c:
+>           c.cerrar()
+
+pruebas\conftest.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <conftest.Chequeos object at 0x000002B83F5E5AF0>
+
+    def cerrar(self):
+        self.registrar()
+        if self.fallas:
+>           raise AssertionError("; ".join(self.fallas))
+E           AssertionError: las 3 ocurrencias recurrentes no consumieron el m├íximo de 3 reservaciones activas
+
+pruebas\conftest.py:70: AssertionError
+- generated xml file: D:\II Semestre 2026\Calidad\Proyecto\Fase 5\Fase5_Persona2_Grupo4\Fase5_Persona2_Grupo4\fase5\evidencias\junit_fase5_persona2.xml -
+=========================== short test summary info ===========================
+FAILED pruebas/test_rn11_limite_activas.py::test_CP_RN11_02_recurrencias_respetan_maximo_tres
+======================== 1 failed, 31 passed in 1.45s =========================
