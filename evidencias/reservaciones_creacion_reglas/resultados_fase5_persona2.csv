@@ -1,33 +1,33 @@
 ﻿ID;Estado;Resultado obtenido;Fecha D
-CP-RF05-01;Aprobado;"respuesta={'exito': True, 'mensaje': 'Reservación R0001 creada correctamente.', 'id': 'R0001'}; filas=[(1, 1, 1, '2026-11-21', '10:00', 1, 2, 'activa', None)]";2026-10-22
-CP-RF05-02;Aprobado;"r1={'exito': True, 'mensaje': 'Reservación R0001 creada correctamente.', 'id': 'R0001'}; r2={'exito': True, 'mensaje': 'Reservación R0002 creada correctamente.', 'id': 'R0002'}";2026-10-22
-CP-RF08-01;Aprobado;respuesta={'disponible': True, 'motivo': 'La sala está disponible.'};2026-10-22
-CP-RF08-02;Aprobado;respuesta={'disponible': False, 'motivo': 'Conflicto: la sala tiene una reservación activa de 10:00 a 12:00.'};2026-10-22
-CP-RF08-03;Aprobado;"respuesta={'disponible': True, 'motivo': 'La sala está disponible.'}; antes=[(1, 1, 2, '2026-11-21', '12:00', 1, 2, 'activa', None)]; después=[(1, 1, 2, '2026-11-21', '12:00', 1, 2, 'activa', None)]";2026-10-22
-CP-RN01-01;Aprobado;respuesta={'exito': False, 'mensaje': 'No existe un estudiante con ese carné.'};2026-10-22
-CP-RN01-02;Aprobado;respuesta={'exito': False, 'mensaje': 'Solo un estudiante activo puede crear reservaciones.'};2026-10-22
-CP-RN02-01;Aprobado;"fecha=2026-10-21; respuesta={'exito': False, 'mensaje': 'La fecha no puede ser anterior a la fecha actual.'}";2026-10-22
-CP-RN02-02;Aprobado;resultados=[{'exito': False, 'mensaje': 'Formato de fecha (AAAA-MM-DD) u hora (HH:MM) inválido.'}, {'exito': False, 'mensaje': 'Formato de fecha (AAAA-MM-DD) u hora (HH:MM) inválido.'}];2026-10-22
-CP-RN03-01;Aprobado;"ahora simulado=2030-01-15 10:30; respuesta={'exito': False, 'mensaje': 'El horario solicitado para hoy ya transcurrió.'}";2026-10-22
-CP-RN04-01;Aprobado;respuesta={'exito': False, 'mensaje': 'La hora debe comenzar exactamente en una hora completa (ej. 08:00).'};2026-10-22
-CP-RN05-01;Aprobado;respuesta={'exito': False, 'mensaje': 'El horario permitido de uso es de 08:00 a 20:00.'};2026-10-22
-CP-RN05-02;Aprobado;respuesta={'exito': False, 'mensaje': 'El horario permitido de uso es de 08:00 a 20:00.'};2026-10-22
-CP-RN05-03;Aprobado;respuesta={'exito': True, 'mensaje': 'Reservación R0001 creada correctamente.', 'id': 'R0001'};2026-10-22
-CP-RN06-01;Aprobado;"1h={'exito': True, 'mensaje': 'Reservación R0001 creada correctamente.', 'id': 'R0001'}; 2h={'exito': True, 'mensaje': 'Reservación R0002 creada correctamente.', 'id': 'R0002'}";2026-10-22
-CP-RN06-02;Aprobado;resultados=[{'exito': False, 'mensaje': 'La duración permitida es únicamente de 1 o 2 horas.'}, {'exito': False, 'mensaje': 'La duración permitida es únicamente de 1 o 2 horas.'}, {'exito': False, 'mensaje': 'La duración permitida es únicamente de 1 o 2 horas.'}];2026-10-22
-CP-RN07-01;Aprobado;respuesta={'exito': True, 'mensaje': 'Reservación R0001 creada correctamente.', 'id': 'R0001'};2026-10-22
-CP-RN07-02;Aprobado;respuesta={'exito': False, 'mensaje': 'La cantidad de personas no puede ser mayor que la capacidad de la sala.'};2026-10-22
-CP-RN07-03;Aprobado;respuesta={'exito': False, 'mensaje': 'La cantidad de personas debe ser un entero mayor que cero.'};2026-10-22
-CP-RN07-04;Aprobado;respuesta={'exito': False, 'mensaje': 'La cantidad de personas debe ser un entero mayor que cero.'};2026-10-22
-CP-RN08-01;Aprobado;respuesta={'exito': False, 'mensaje': 'La sala se encuentra fuera de servicio.'};2026-10-22
-CP-RN09-01;Aprobado;"existente=10:00/2h; nueva=10:00/2h; respuesta={'exito': False, 'mensaje': 'Conflicto: la sala tiene una reservación activa de 10:00 a 12:00.'}";2026-10-22
-CP-RN09-02;Aprobado;"existente=10:00/2h; nueva=09:00/2h; respuesta={'exito': False, 'mensaje': 'Conflicto: la sala tiene una reservación activa de 10:00 a 12:00.'}";2026-10-22
-CP-RN09-03;Aprobado;"existente=10:00/2h; nueva=11:00/2h; respuesta={'exito': False, 'mensaje': 'Conflicto: la sala tiene una reservación activa de 10:00 a 12:00.'}";2026-10-22
-CP-RN09-04;Aprobado;"existente=10:00/1h; nueva=09:00/2h; respuesta={'exito': False, 'mensaje': 'Conflicto: la sala tiene una reservación activa de 10:00 a 11:00.'}";2026-10-22
-CP-RN10-01;Aprobado;respuesta={'exito': True, 'mensaje': 'Reservación R0002 creada correctamente.', 'id': 'R0002'};2026-10-22
-CP-RN10-02;Aprobado;respuesta={'exito': True, 'mensaje': 'Reservación R0002 creada correctamente.', 'id': 'R0002'};2026-10-22
-CP-RN11-01;Aprobado;"primeras=[{'exito': True, 'mensaje': 'Reservación R0001 creada correctamente.', 'id': 'R0001'}, {'exito': True, 'mensaje': 'Reservación R0002 creada correctamente.', 'id': 'R0002'}, {'exito': True, 'mensaje': 'Reservación R0003 creada correctamente.', 'id': 'R0003'}]; cuarta={'exito': False, 'mensaje': 'El estudiante ya tiene el máximo de 3 reservaciones activas.'}";2026-10-22
-CP-RN11-02;Fallido;"serie={'exito': True, 'puede_crear': True, 'mensaje': 'Serie SR0001 creada correctamente.', 'serie_id': 'SR0001', 'ids': ['R0001', 'R0002', 'R0003'], 'ocurrencias': [{'numero': 1, 'fecha': '2026-11-21', 'disponible': True, 'mensaje': 'Horario disponible.'}, {'numero': 2, 'fecha': '2026-11-28', 'disponible': True, 'mensaje': 'Horario disponible.'}, {'numero': 3, 'fecha': '2026-12-05', 'disponible': True, 'mensaje': 'Horario disponible.'}]}; adicional={'exito': True, 'mensaje': 'Reservación R0004 creada correctamente.', 'id': 'R0004'} | INCUMPLE: las 3 ocurrencias recurrentes no consumieron el máximo de 3 reservaciones activas";2026-10-22
-CP-RNF07-01;Aprobado;"capas existentes=[True, True, True, True]; imports de GUI en model=[]";2026-10-22
-CP-RNF10-01;Aprobado;"crear={'exito': True, 'mensaje': 'Reservación R0001 creada correctamente.', 'id': 'R0001'}; disponibilidad={'disponible': True, 'motivo': 'La sala está disponible.'}; GUI antes=False; GUI después=False";2026-10-22
-CP-RNF10-02;Aprobado;"crear={'exito': True, 'mensaje': 'Reservación R0001 creada correctamente.', 'id': 'R0001'}; reservas_temporales=1; productiva_existía=False; después=False";2026-10-22
+CP-RF05-01;Aprobado;"respuesta={'exito': True, 'mensaje': 'Reservación R0001 creada correctamente.', 'id': 'R0001'}; filas=[(1, 1, 1, '2026-11-22', '10:00', 1, 2, 'activa', None)]";2026-10-23
+CP-RF05-02;Aprobado;"r1={'exito': True, 'mensaje': 'Reservación R0001 creada correctamente.', 'id': 'R0001'}; r2={'exito': True, 'mensaje': 'Reservación R0002 creada correctamente.', 'id': 'R0002'}";2026-10-23
+CP-RF08-01;Aprobado;respuesta={'disponible': True, 'motivo': 'La sala está disponible.'};2026-10-23
+CP-RF08-02;Aprobado;respuesta={'disponible': False, 'motivo': 'Conflicto: la sala tiene una reservación activa de 10:00 a 12:00.'};2026-10-23
+CP-RF08-03;Aprobado;"respuesta={'disponible': True, 'motivo': 'La sala está disponible.'}; antes=[(1, 1, 2, '2026-11-22', '12:00', 1, 2, 'activa', None)]; después=[(1, 1, 2, '2026-11-22', '12:00', 1, 2, 'activa', None)]";2026-10-23
+CP-RN01-01;Aprobado;respuesta={'exito': False, 'mensaje': 'No existe un estudiante con ese carné.'};2026-10-23
+CP-RN01-02;Aprobado;respuesta={'exito': False, 'mensaje': 'Solo un estudiante activo puede crear reservaciones.'};2026-10-23
+CP-RN02-01;Aprobado;"fecha=2026-10-22; respuesta={'exito': False, 'mensaje': 'La fecha no puede ser anterior a la fecha actual.'}";2026-10-23
+CP-RN02-02;Aprobado;resultados=[{'exito': False, 'mensaje': 'Formato de fecha (AAAA-MM-DD) u hora (HH:MM) inválido.'}, {'exito': False, 'mensaje': 'Formato de fecha (AAAA-MM-DD) u hora (HH:MM) inválido.'}];2026-10-23
+CP-RN03-01;Aprobado;"ahora simulado=2030-01-15 10:30; respuesta={'exito': False, 'mensaje': 'El horario solicitado para hoy ya transcurrió.'}";2026-10-23
+CP-RN04-01;Aprobado;respuesta={'exito': False, 'mensaje': 'La hora debe comenzar exactamente en una hora completa (ej. 08:00).'};2026-10-23
+CP-RN05-01;Aprobado;respuesta={'exito': False, 'mensaje': 'El horario permitido de uso es de 08:00 a 20:00.'};2026-10-23
+CP-RN05-02;Aprobado;respuesta={'exito': False, 'mensaje': 'El horario permitido de uso es de 08:00 a 20:00.'};2026-10-23
+CP-RN05-03;Aprobado;respuesta={'exito': True, 'mensaje': 'Reservación R0001 creada correctamente.', 'id': 'R0001'};2026-10-23
+CP-RN06-01;Aprobado;"1h={'exito': True, 'mensaje': 'Reservación R0001 creada correctamente.', 'id': 'R0001'}; 2h={'exito': True, 'mensaje': 'Reservación R0002 creada correctamente.', 'id': 'R0002'}";2026-10-23
+CP-RN06-02;Aprobado;resultados=[{'exito': False, 'mensaje': 'La duración permitida es únicamente de 1 o 2 horas.'}, {'exito': False, 'mensaje': 'La duración permitida es únicamente de 1 o 2 horas.'}, {'exito': False, 'mensaje': 'La duración permitida es únicamente de 1 o 2 horas.'}];2026-10-23
+CP-RN07-01;Aprobado;respuesta={'exito': True, 'mensaje': 'Reservación R0001 creada correctamente.', 'id': 'R0001'};2026-10-23
+CP-RN07-02;Aprobado;respuesta={'exito': False, 'mensaje': 'La cantidad de personas no puede ser mayor que la capacidad de la sala.'};2026-10-23
+CP-RN07-03;Aprobado;respuesta={'exito': False, 'mensaje': 'La cantidad de personas debe ser un entero mayor que cero.'};2026-10-23
+CP-RN07-04;Aprobado;respuesta={'exito': False, 'mensaje': 'La cantidad de personas debe ser un entero mayor que cero.'};2026-10-23
+CP-RN08-01;Aprobado;respuesta={'exito': False, 'mensaje': 'La sala se encuentra fuera de servicio.'};2026-10-23
+CP-RN09-01;Aprobado;"existente=10:00/2h; nueva=10:00/2h; respuesta={'exito': False, 'mensaje': 'Conflicto: la sala tiene una reservación activa de 10:00 a 12:00.'}";2026-10-23
+CP-RN09-02;Aprobado;"existente=10:00/2h; nueva=09:00/2h; respuesta={'exito': False, 'mensaje': 'Conflicto: la sala tiene una reservación activa de 10:00 a 12:00.'}";2026-10-23
+CP-RN09-03;Aprobado;"existente=10:00/2h; nueva=11:00/2h; respuesta={'exito': False, 'mensaje': 'Conflicto: la sala tiene una reservación activa de 10:00 a 12:00.'}";2026-10-23
+CP-RN09-04;Aprobado;"existente=10:00/1h; nueva=09:00/2h; respuesta={'exito': False, 'mensaje': 'Conflicto: la sala tiene una reservación activa de 10:00 a 11:00.'}";2026-10-23
+CP-RN10-01;Aprobado;respuesta={'exito': True, 'mensaje': 'Reservación R0002 creada correctamente.', 'id': 'R0002'};2026-10-23
+CP-RN10-02;Aprobado;respuesta={'exito': True, 'mensaje': 'Reservación R0002 creada correctamente.', 'id': 'R0002'};2026-10-23
+CP-RN11-01;Aprobado;"primeras=[{'exito': True, 'mensaje': 'Reservación R0001 creada correctamente.', 'id': 'R0001'}, {'exito': True, 'mensaje': 'Reservación R0002 creada correctamente.', 'id': 'R0002'}, {'exito': True, 'mensaje': 'Reservación R0003 creada correctamente.', 'id': 'R0003'}]; cuarta={'exito': False, 'mensaje': 'El estudiante ya tiene el máximo de 3 reservaciones activas.'}";2026-10-23
+CP-RN11-02;Fallido;"serie={'exito': True, 'puede_crear': True, 'mensaje': 'Serie SR0001 creada correctamente.', 'serie_id': 'SR0001', 'ids': ['R0001', 'R0002', 'R0003'], 'ocurrencias': [{'numero': 1, 'fecha': '2026-11-22', 'disponible': True, 'mensaje': 'Horario disponible.'}, {'numero': 2, 'fecha': '2026-11-29', 'disponible': True, 'mensaje': 'Horario disponible.'}, {'numero': 3, 'fecha': '2026-12-06', 'disponible': True, 'mensaje': 'Horario disponible.'}]}; adicional={'exito': True, 'mensaje': 'Reservación R0004 creada correctamente.', 'id': 'R0004'} | INCUMPLE: las 3 ocurrencias recurrentes no consumieron el máximo de 3 reservaciones activas";2026-10-23
+CP-RNF07-01;Aprobado;"capas existentes=[True, True, True, True]; imports de GUI en model=[]";2026-10-23
+CP-RNF10-01;Aprobado;"crear={'exito': True, 'mensaje': 'Reservación R0001 creada correctamente.', 'id': 'R0001'}; disponibilidad={'disponible': True, 'motivo': 'La sala está disponible.'}; GUI antes=False; GUI después=False";2026-10-23
+CP-RNF10-02;Aprobado;"crear={'exito': True, 'mensaje': 'Reservación R0001 creada correctamente.', 'id': 'R0001'}; reservas_temporales=1; productiva_existía=False; después=False";2026-10-23
