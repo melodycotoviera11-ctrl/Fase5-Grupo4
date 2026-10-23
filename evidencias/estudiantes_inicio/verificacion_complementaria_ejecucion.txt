@@ -1,0 +1,19 @@
+Commit evaluado: ee922b6
+
+requirements.txt: 0 bytes
+Existe carpeta solucion/ (README): False | existe src/: True | existe test/: False | existe tests/: True
+$ (cwd=clon) /usr/bin/python3 main.py
+  código=2
+  stderr(últimas líneas)=["/usr/bin/python3: can't open file '/tmp/tmp4_ve3orc/clon/main.py': [Errno 2] No such file or directory"]
+  stdout=''
+
+$ (cwd=clon) /usr/bin/python3 src/main.py
+  código=1
+  stderr(últimas líneas)=['    from src.db.inicializador import inicializar_base_datos', "ModuleNotFoundError: No module named 'src'"]
+  stdout=''
+
+$ (cwd=src) /usr/bin/python3 main.py
+  código=1
+  stderr(últimas líneas)=['    from src.db.inicializador import inicializar_base_datos', "ModuleNotFoundError: No module named 'src'"]
+  stdout=''
+
