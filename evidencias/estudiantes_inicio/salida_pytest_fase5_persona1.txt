@@ -1,0 +1,66 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.12.2, pytest-9.1.1, pluggy-1.7.0 -- C:\Users\pamel\Downloads\Fase5_Persona1_Grupo4\fase5\venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\pamel\Downloads\Fase5_Persona1_Grupo4\fase5
+collecting ... collected 25 items
+
+pruebas/test_rf01_carga_datos.py::test_CP_RF01_01_crea_bd_primera_ejecucion PASSED [  4%]
+pruebas/test_rf01_carga_datos.py::test_CP_RF01_02_no_duplica_registros PASSED [  8%]
+pruebas/test_rf01_carga_datos.py::test_CP_RF01_03_carga_3_estudiantes_iniciales FAILED [ 12%]
+pruebas/test_rf01_carga_datos.py::test_CP_RF01_04_carga_5_salas_iniciales PASSED [ 16%]
+pruebas/test_rf02_registrar_estudiante.py::test_CP_RF02_01_carne_duplicado_otra_capitalizacion PASSED [ 20%]
+pruebas/test_rf02_registrar_estudiante.py::test_CP_RF02_02_carne_9_caracteres PASSED [ 24%]
+pruebas/test_rf02_registrar_estudiante.py::test_CP_RF02_03_carne_10_caracteres PASSED [ 28%]
+pruebas/test_rf02_registrar_estudiante.py::test_CP_RF02_04_carne_11_caracteres PASSED [ 32%]
+pruebas/test_rf02_registrar_estudiante.py::test_CP_RF02_05_carne_con_espacios_o_simbolos PASSED [ 36%]
+pruebas/test_rf02_registrar_estudiante.py::test_CP_RF02_06_nombre_minimo_3_caracteres PASSED [ 40%]
+pruebas/test_rf02_registrar_estudiante.py::test_CP_RF02_07_correo_sin_arroba PASSED [ 44%]
+pruebas/test_rf02_registrar_estudiante.py::test_CP_RF02_08_correo_dos_arrobas PASSED [ 48%]
+pruebas/test_rf02_registrar_estudiante.py::test_CP_RF02_09_correo_sin_punto_despues_arroba PASSED [ 52%]
+pruebas/test_rf02_registrar_estudiante.py::test_CP_RF02_10_campos_vacios PASSED [ 56%]
+pruebas/test_rf02_registrar_estudiante.py::test_CP_RF02_11_recorta_espacios_extremos PASSED [ 60%]
+pruebas/test_rf03_consultar_estudiantes.py::test_CP_RF03_01_lista_ordenada_con_activos_e_inactivos PASSED [ 64%]
+pruebas/test_rf03_consultar_estudiantes.py::test_CP_RF03_02_consultar_no_modifica PASSED [ 68%]
+pruebas/test_rf03_consultar_estudiantes.py::test_CP_RF03_03_mensaje_si_no_hay_estudiantes PASSED [ 72%]
+pruebas/test_rf11_modificar_estudiante.py::test_CP_RF11_01_edita_nombre_y_correo PASSED [ 76%]
+pruebas/test_rf11_modificar_estudiante.py::test_CP_RF11_02_edicion_invalida_conserva_originales PASSED [ 80%]
+pruebas/test_rf11_modificar_estudiante.py::test_CP_RF11_03_inactivar_estudiante PASSED [ 84%]
+pruebas/test_rf11_modificar_estudiante.py::test_CP_RF11_04_activar_estudiante PASSED [ 88%]
+pruebas/test_rnf05_robustez.py::test_CP_RNF05_01_entrada_invalida_no_cierra_ni_deja_datos_parciales PASSED [ 92%]
+pruebas/test_rnf05_robustez.py::test_CP_RNF05_02_caracteres_especiales_y_texto_largo PASSED [ 96%]
+pruebas/test_rnf05_robustez.py::test_CP_RNF05_03_bd_danada_no_cierra_sin_aviso PASSED [100%]
+
+================================== FAILURES ===================================
+________________ test_CP_RF01_03_carga_3_estudiantes_iniciales ________________
+
+item = <Function test_CP_RF01_03_carga_3_estudiantes_iniciales>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_runtest_call(item):
+        """Eval├║a los chequeos acumulados dentro de la fase de ejecuci├│n del caso."""
+        c = item.funcargs.get("chk")
+        try:
+            resultado = yield
+        except BaseException:
+            if c:
+                c.registrar()
+            raise
+        if c:
+>           c.cerrar()
+
+pruebas\conftest.py:94: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <conftest.Chequeos object at 0x00000167AC659EE0>
+
+    def cerrar(self):
+        self.registrar()
+        if self.fallas:
+>           raise AssertionError("; ".join(self.fallas))
+E           AssertionError: la carga inicial no contiene los 3 estudiantes de la secci├│n 10 del enunciado (H-02)
+
+pruebas\conftest.py:73: AssertionError
+- generated xml file: C:\Users\pamel\Downloads\Fase5_Persona1_Grupo4\fase5\evidencias\junit_fase5_persona1.xml -
+=========================== short test summary info ===========================
+FAILED pruebas/test_rf01_carga_datos.py::test_CP_RF01_03_carga_3_estudiantes_iniciales
+======================== 1 failed, 24 passed in 28.13s ========================

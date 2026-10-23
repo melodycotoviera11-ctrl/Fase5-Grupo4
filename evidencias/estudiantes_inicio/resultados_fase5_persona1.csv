@@ -1,0 +1,26 @@
+﻿ID;Estado;Resultado obtenido;Fecha D
+CP-RF01-01;Aprobado;"proceso sigue en ejecución (interfaz abierta); archivos .db: ['src\\db\\reservas.db']; stdout=''; stderr='' | tablas y registros: {'estudiantes': 0, 'salas': 5, 'reservaciones': 0, 'auditoria': 0}";2026-10-20
+CP-RF01-02;Aprobado;"antes={'estudiantes': 0, 'salas': 5, 'reservaciones': 0, 'auditoria': 0}; después={'estudiantes': 0, 'salas': 5, 'reservaciones': 0, 'auditoria': 0}";2026-10-20
+CP-RF01-03;Fallido;estudiantes cargados por la inicialización: 0 -> [] | INCUMPLE: la carga inicial no contiene los 3 estudiantes de la sección 10 del enunciado (H-02);2026-10-20
+CP-RF01-04;Aprobado;salas: [('S01', 'Sala Biblioteca 1', 4, 'disponible'), ('S02', 'Sala Biblioteca 2', 6, 'disponible'), ('S03', 'Laboratorio de estudio', 10, 'disponible'), ('S04', 'Sala multimedia', 8, 'fuera_de_servicio'), ('S05', 'Cubículo individual', 1, 'disponible')];2026-10-20
+CP-RF02-01;Aprobado;(a) a001234567: ok=False, mensaje='Ya existe un estudiante con ese carné.' | (b) b009876543: ok=False, mensaje='Ya existe un estudiante con ese carné.';2026-10-20
+CP-RF02-02;Aprobado;carné 9: ok=False, mensaje='El carné debe tener exactamente 10 caracteres alfanuméricos.';2026-10-20
+CP-RF02-03;Aprobado;ok=True, mensaje='Estudiante registrado correctamente.', guardado={'carne': 'D001112223', 'nombre_completo': 'Ana Mora', 'correo': 'ana.mora@universidad.ac.cr', 'estado': 'activo'};2026-10-20
+CP-RF02-04;Aprobado;carné 11: ok=False, mensaje='El carné debe tener exactamente 10 caracteres alfanuméricos.';2026-10-20
+CP-RF02-05;Aprobado;(a) espacio: ok=False, mensaje='El carné debe tener exactamente 10 caracteres alfanuméricos.' | (b) símbolo: ok=False, mensaje='El carné debe tener exactamente 10 caracteres alfanuméricos.';2026-10-20
+CP-RF02-06;Aprobado;(a) 'Al': ok=False, mensaje='El nombre debe contener al menos 3 caracteres sin contar espacios.' | (b) 'Ana': ok=True, mensaje='Estudiante registrado correctamente.' | (c) 'A l': ok=False, mensaje='El nombre debe contener al menos 3 caracteres sin contar espacios.';2026-10-20
+CP-RF02-07;Aprobado;sin @: ok=False, mensaje='El correo debe contener exactamente un @.';2026-10-20
+CP-RF02-08;Aprobado;dos @: ok=False, mensaje='El correo debe contener exactamente un @.';2026-10-20
+CP-RF02-09;Aprobado;(a) sin punto: ok=False, mensaje='El correo electrónico no es válido.' | (b) sin punto: ok=False, mensaje='El correo electrónico no es válido.';2026-10-20
+CP-RF02-10;Aprobado;(a) carné vacío: ok=False, mensaje='El carné debe tener exactamente 10 caracteres alfanuméricos.' | (b) nombre vacío: ok=False, mensaje='El nombre debe contener al menos 3 caracteres sin contar espacios.' | (c) correo vacío: ok=False, mensaje='El correo debe contener exactamente un @.' | (d) tres vacíos: ok=False, mensaje='El carné debe tener exactamente 10 caracteres alfanuméricos.' | (e) tres con espacios: ok=False, mensaje='El carné debe tener exactamente 10 caracteres alfanuméricos.';2026-10-20
+CP-RF02-11;Aprobado;ok=True, mensaje='Estudiante registrado correctamente.', guardado={'carne': 'D001112223', 'nombre_completo': 'Ana Mora', 'correo': 'ana.mora@universidad.ac.cr', 'estado': 'activo'};2026-10-20
+CP-RF03-01;Aprobado;ok=True, mensaje='Consulta realizada correctamente.', orden=['Ana Mora', 'Andrea Solano', 'Carlos Méndez', 'Daniela Rojas'];2026-10-20
+CP-RF03-02;Aprobado;filas antes=4, después=4;2026-10-20
+CP-RF03-03;Aprobado;ok=True, mensaje='No hay estudiantes registrados.', datos=[];2026-10-20
+CP-RF11-01;Aprobado;ok=True, mensaje='Estudiante modificado correctamente.', resultado={'carne': 'D001112223', 'nombre_completo': 'Ana Mora Solís', 'correo': 'ana.solis@universidad.ac.cr', 'estado': 'activo'};2026-10-20
+CP-RF11-02;Aprobado;(a) nombre 'Al': ok=False, mensaje='El nombre debe contener al menos 3 caracteres sin contar espacios.' | (b) correo 'ana@@...': ok=False, mensaje='El correo debe contener exactamente un @.' | (c) nombre válido + correo inválido: ok=False, mensaje='El correo debe contener exactamente un @.' | (d) nombre vacío: ok=False, mensaje='El nombre debe contener al menos 3 caracteres sin contar espacios.';2026-10-20
+CP-RF11-03;Aprobado;ok=True, mensaje='Estudiante modificado correctamente.', resultado={'carne': 'D001112223', 'nombre_completo': 'Ana Mora', 'correo': 'ana.mora@universidad.ac.cr', 'estado': 'inactivo'};2026-10-20
+CP-RF11-04;Aprobado;ok=True, mensaje='Estudiante modificado correctamente.', resultado={'carne': 'C004567890', 'nombre_completo': 'Daniela Rojas', 'correo': 'daniela@universidad.ac.cr', 'estado': 'activo'};2026-10-20
+CP-RNF05-01;Aprobado;"registro inválido=(False, 'El correo debe contener exactamente un @.'); edición inválida=(False, 'El nombre debe contener al menos 3 caracteres sin contar espacios.')";2026-10-20
+CP-RNF05-02;Aprobado;"""Robert'); DROP TABLE estu""(len=35): ok=True, mensaje='Estudiante registrado correctamente.', guardado_integro=True | 'AAAAAAAAAAAAAAAAAAAAAAAAA'(len=300): ok=True, mensaje='Estudiante registrado correctamente.', guardado_integro=True";2026-10-20
+CP-RNF05-03;Aprobado;"código de salida=1; stdout='No fue posible iniciar la aplicación.\nNo fue posible inicializar la base de datos: file is not a database'; stderr=''";2026-10-20
