@@ -1,0 +1,26 @@
+﻿ID;Estado;Resultado obtenido;*Fecha D*
+CP-RF06-01;Aprobado;"La consulta devolvió 3 reservaciones, activas y canceladas, ordenadas por fecha y hora; incluyó los campos requeridos y calculó correctamente las horas de fin.";*2026-10-23*
+CP-RF06-02;Aprobado;La consulta sin reservas devolvió una lista vacía y un mensaje informativo de que no hay reservaciones.;*2026-10-23*
+CP-RF07-01;Aprobado;La búsqueda por carné devolvió 2 reservaciones del estudiante, una cancelada y otra activa, con sus salas y el orden esperado.;*2026-10-23*
+CP-RF07-02;Aprobado;La búsqueda de un estudiante registrado sin reservas devolvió una lista vacía y un mensaje indicando que no tiene reservaciones.;*2026-10-23*
+CP-RF07-03;Aprobado;La búsqueda con el carné en mayúsculas y minúsculas devolvió las mismas reservaciones (1 coincidencia).;*2026-10-23*
+CP-RF07-04;Aprobado;La búsqueda de un carné inexistente fue rechazada, devolvió una lista vacía y un mensaje indicando que el estudiante no existe.;*2026-10-23*
+CP-RF09-01;Aprobado;La reserva activa se canceló, permaneció en el historial y su horario quedó disponible para una nueva reserva con otro identificador.;*2026-10-23*
+CP-RF09-02;Aprobado;"La segunda cancelación fue rechazada con un mensaje de reserva ya cancelada; no cambió el estado ni se añadieron registros.";*2026-10-23*
+CP-RF09-03;Aprobado;"Se rechazó la cancelación del ID inexistente R9999 con un mensaje informativo; los datos permanecieron iguales.";*2026-10-23*
+CP-RF13-01;Aprobado;La modificación válida cambió sala a S02, fecha, inicio a 12:00, duración a 2 horas y cantidad a 5, manteniendo ID y estado activo.;*2026-10-23*
+CP-RF13-02;Aprobado;La modificación con conflicto de horario fue rechazada y la reserva conservó íntegramente sus datos originales.;*2026-10-23*
+CP-RF13-03;Aprobado;Se rechazó la modificación de una reservación cancelada y se preservaron sus datos originales.;*2026-10-23*
+CP-RF13-04;Aprobado;La modificación de la cantidad de personas a 3 fue aceptada sin detectar conflicto consigo misma y conservó su ID y horario.;*2026-10-23*
+CP-RF13-05;Aprobado;"Se rechazó la modificación a 5 personas por superar la capacidad de S01; los datos originales no cambiaron.";*2026-10-23*
+CP-RF14-01;Aprobado;La previsualización mostró 3 ocurrencias disponibles, permitió continuar y no guardó reservaciones en la base de datos.;*2026-10-23*
+CP-RF14-02;Aprobado;Se creó una serie válida con 3 ocurrencias activas, identificadores diferentes y fechas separadas exactamente por 7 días.;*2026-10-23*
+CP-RF14-03;Aprobado;"Se rechazaron las series de 1 y 9 semanas; no quedaron ocurrencias guardadas.";*2026-10-23*
+CP-RF14-04;Aprobado;"La previsualización identificó un conflicto en la segunda ocurrencia; la creación fue rechazada sin guardar cambios parciales.";*2026-10-23*
+CP-RF14-05;Aprobado;La cancelación individual de una ocurrencia de la serie se efectuó y las otras ocurrencias conservaron su estado activo.;*2026-10-23*
+CP-RF14-06;Aprobado;Al cancelar desde la segunda ocurrencia de una serie de 4, se cancelaron 3 ocurrencias y la primera permaneció activa.;*2026-10-23*
+CP-RN12-01;Aprobado;La reservación cancelada permaneció en el historial con el mismo ID y estado cancelada.;*2026-10-23*
+CP-RN12-02;Aprobado;La cancelación liberó el horario: se creó otra reserva activa en el mismo intervalo, con ID distinto, conservando la cancelada en el historial.;*2026-10-23*
+CP-RN13-01;Aprobado;"Los ID continuaron en orden creciente tras cancelar una reserva y reiniciar la conexión; el historial conservó 3 IDs únicos y el registro cancelado.";*2026-10-23*
+CP-RNF06-01;Aprobado;La modificación inválida fue rechazada y la instantánea de los datos almacenados permaneció idéntica.;*2026-10-23*
+CP-RNF06-02;Aprobado;"La creación recurrente con conflicto fue rechazada; la base de datos conservó su estado sin registros parciales.";*2026-10-23*
