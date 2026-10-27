@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="35" time="0.782" timestamp="2026-10-26T18:23:55.495997-06:00" hostname="MacBookAir.lan"><testcase classname="pruebas.salas_panel_reportes.test_rf04_consultar_salas" name="test_CP_RF04_01_muestra_campos_y_salas_iniciales" time="0.013" /><testcase classname="pruebas.salas_panel_reportes.test_rf04_consultar_salas" name="test_CP_RF04_02_orden_por_codigo_e_incluye_fuera_de_servicio" time="0.005" /><testcase classname="pruebas.salas_panel_reportes.test_rf04_consultar_salas" name="test_CP_RF04_03_consulta_no_modifica_datos" time="0.004" /><testcase classname="pruebas.salas_panel_reportes.test_rf12_gestionar_salas" name="test_CP_RF12_01_registrar_sala_valida" time="0.005" /><testcase classname="pruebas.salas_panel_reportes.test_rf12_gestionar_salas" name="test_CP_RF12_02_codigo_duplicado_rechazado" time="0.005" /><testcase classname="pruebas.salas_panel_reportes.test_rf12_gestionar_salas" name="test_CP_RF12_03_codigo_equivalente_no_crea_duplicado" time="0.005"><failure message="AssertionError: se registró 's01', equivalente a S01, como una sala distinta; se registró ' S01 ', equivalente a S01, como una sala distinta; se registró 'S01 ', equivalente a S01, como una sala distinta; la consulta de salas quedó con códigos equivalentes duplicados">item = &lt;Function test_CP_RF12_03_codigo_equivalente_no_crea_duplicado&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_runtest_call(item):
+        c = item.funcargs.get("chk")
+        try:
+            resultado = yield
+        except BaseException:
+            if c:
+                c.registrar()
+            raise
+        if c:
+&gt;           c.cerrar()
+
+pruebas/salas_panel_reportes/conftest.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;conftest.Chequeos object at 0x10cfd3530&gt;
+
+    def cerrar(self):
+        self.registrar()
+        if self.fallas:
+&gt;           raise AssertionError("; ".join(self.fallas))
+E           AssertionError: se registró 's01', equivalente a S01, como una sala distinta; se registró ' S01 ', equivalente a S01, como una sala distinta; se registró 'S01 ', equivalente a S01, como una sala distinta; la consulta de salas quedó con códigos equivalentes duplicados
+
+pruebas/salas_panel_reportes/conftest.py:73: AssertionError</failure></testcase><testcase classname="pruebas.salas_panel_reportes.test_rf12_gestionar_salas" name="test_CP_RF12_04_capacidad_invalida_rechazada" time="0.005" /><testcase classname="pruebas.salas_panel_reportes.test_rf12_gestionar_salas" name="test_CP_RF12_05_nombre_vacio_rechazado" time="0.007"><failure message="AssertionError: se registró una sala con nombre ''; se modificó S01 dejándola con nombre ''; se registró una sala con nombre '   '; se modificó S01 dejándola con nombre '   '">item = &lt;Function test_CP_RF12_05_nombre_vacio_rechazado&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_runtest_call(item):
+        c = item.funcargs.get("chk")
+        try:
+            resultado = yield
+        except BaseException:
+            if c:
+                c.registrar()
+            raise
+        if c:
+&gt;           c.cerrar()
+
+pruebas/salas_panel_reportes/conftest.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;conftest.Chequeos object at 0x10ceff9b0&gt;
+
+    def cerrar(self):
+        self.registrar()
+        if self.fallas:
+&gt;           raise AssertionError("; ".join(self.fallas))
+E           AssertionError: se registró una sala con nombre ''; se modificó S01 dejándola con nombre ''; se registró una sala con nombre '   '; se modificó S01 dejándola con nombre '   '
+
+pruebas/salas_panel_reportes/conftest.py:73: AssertionError</failure></testcase><testcase classname="pruebas.salas_panel_reportes.test_rf12_gestionar_salas" name="test_CP_RF12_06_modificar_nombre_y_capacidad_conserva_codigo" time="0.005" /><testcase classname="pruebas.salas_panel_reportes.test_rf12_gestionar_salas" name="test_CP_RF12_07_no_reduce_capacidad_bajo_reserva_futura" time="0.005" /><testcase classname="pruebas.salas_panel_reportes.test_rf12_gestionar_salas" name="test_CP_RF12_08_reservas_canceladas_o_pasadas_no_limitan_capacidad" time="0.005" /><testcase classname="pruebas.salas_panel_reportes.test_rf12_gestionar_salas" name="test_CP_RF12_09_fuera_de_servicio_conserva_historial_y_rechaza" time="0.008" /><testcase classname="pruebas.salas_panel_reportes.test_rf12_gestionar_salas" name="test_CP_RF12_10_entradas_invalidas_sin_cambios" time="0.004" /><testcase classname="pruebas.salas_panel_reportes.test_rf15_panel" name="test_CP_RF15_01_contenido_del_panel" time="0.006" /><testcase classname="pruebas.salas_panel_reportes.test_rf15_panel" name="test_CP_RF15_02_filtros_combinados" time="0.007" /><testcase classname="pruebas.salas_panel_reportes.test_rf15_panel" name="test_CP_RF15_03_estado_vacio_comprensible" time="0.007" /><testcase classname="pruebas.salas_panel_reportes.test_rf15_panel" name="test_CP_RF15_04_se_actualiza_tras_crear_modificar_cancelar" time="0.007" /><testcase classname="pruebas.salas_panel_reportes.test_rf15_panel" name="test_CP_RF15_05_filtros_invalidos_no_rompen" time="0.004" /><testcase classname="pruebas.salas_panel_reportes.test_rf15_panel" name="test_CP_RF15_06_filtro_por_sala_registrada_por_rf12" time="0.006"><failure message="AssertionError: la reserva de la sala 's06' no aparece al filtrar el panel por esa sala">item = &lt;Function test_CP_RF15_06_filtro_por_sala_registrada_por_rf12&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_runtest_call(item):
+        c = item.funcargs.get("chk")
+        try:
+            resultado = yield
+        except BaseException:
+            if c:
+                c.registrar()
+            raise
+        if c:
+&gt;           c.cerrar()
+
+pruebas/salas_panel_reportes/conftest.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;conftest.Chequeos object at 0x10d03c680&gt;
+
+    def cerrar(self):
+        self.registrar()
+        if self.fallas:
+&gt;           raise AssertionError("; ".join(self.fallas))
+E           AssertionError: la reserva de la sala 's06' no aparece al filtrar el panel por esa sala
+
+pruebas/salas_panel_reportes/conftest.py:73: AssertionError</failure></testcase><testcase classname="pruebas.salas_panel_reportes.test_rf16_reportes" name="test_CP_RF16_01_rango_obligatorio" time="0.005" /><testcase classname="pruebas.salas_panel_reportes.test_rf16_reportes" name="test_CP_RF16_02_fecha_final_anterior_y_limites" time="0.006" /><testcase classname="pruebas.salas_panel_reportes.test_rf16_reportes" name="test_CP_RF16_03_contenido_y_rango_inclusivo" time="0.008" /><testcase classname="pruebas.salas_panel_reportes.test_rf16_reportes" name="test_CP_RF16_04_cancelar_selector_no_crea_archivo" time="0.005" /><testcase classname="pruebas.salas_panel_reportes.test_rf16_reportes" name="test_CP_RF16_05_error_de_escritura_sin_archivo_parcial" time="0.006" /><testcase classname="pruebas.salas_panel_reportes.test_rf16_reportes" name="test_CP_RF16_06_rango_sin_reservaciones" time="0.007" /><testcase classname="pruebas.salas_panel_reportes.test_rf17_auditoria" name="test_CP_RF17_01_creacion_registra_evento_completo" time="0.006" /><testcase classname="pruebas.salas_panel_reportes.test_rf17_auditoria" name="test_CP_RF17_02_modificacion_y_cancelacion_registran" time="0.006" /><testcase classname="pruebas.salas_panel_reportes.test_rf17_auditoria" name="test_CP_RF17_03_estudiantes_y_salas_registran" time="0.007" /><testcase classname="pruebas.salas_panel_reportes.test_rf17_auditoria" name="test_CP_RF17_04_errores_de_validacion_no_se_registran" time="0.007" /><testcase classname="pruebas.salas_panel_reportes.test_rf17_auditoria" name="test_CP_RF17_05_consulta_ordenada_y_estado_vacio" time="0.006" /><testcase classname="pruebas.salas_panel_reportes.test_rf17_auditoria" name="test_CP_RF17_06_historial_no_editable_desde_interfaz" time="0.005" /><testcase classname="pruebas.salas_panel_reportes.test_rf17_auditoria" name="test_CP_RF17_07_series_registran_ids_afectados" time="0.006"><failure message="AssertionError: la auditoría no identifica las reservaciones ['R0001', 'R0002', 'R0003'] creadas o canceladas en la serie">item = &lt;Function test_CP_RF17_07_series_registran_ids_afectados&gt;
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_runtest_call(item):
+        c = item.funcargs.get("chk")
+        try:
+            resultado = yield
+        except BaseException:
+            if c:
+                c.registrar()
+            raise
+        if c:
+&gt;           c.cerrar()
+
+pruebas/salas_panel_reportes/conftest.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;conftest.Chequeos object at 0x10d02dbb0&gt;
+
+    def cerrar(self):
+        self.registrar()
+        if self.fallas:
+&gt;           raise AssertionError("; ".join(self.fallas))
+E           AssertionError: la auditoría no identifica las reservaciones ['R0001', 'R0002', 'R0003'] creadas o canceladas en la serie
+
+pruebas/salas_panel_reportes/conftest.py:73: AssertionError</failure></testcase><testcase classname="pruebas.salas_panel_reportes.test_rnf08_codificacion" name="test_CP_RNF08_01_base_de_datos_conserva_tildes_y_enie" time="0.006" /><testcase classname="pruebas.salas_panel_reportes.test_rnf08_codificacion" name="test_CP_RNF08_02_csv_utf8_conserva_tildes_y_enie" time="0.007" /><testcase classname="pruebas.salas_panel_reportes.test_rnf09_rendimiento" name="test_CP_RNF09_01_consultas_bajo_dos_segundos" time="0.447" /></testsuite></testsuites>
