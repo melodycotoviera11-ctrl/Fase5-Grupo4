@@ -111,24 +111,32 @@ def bd_inicial(tmp_path):
     cerrar_conexion()
 
 
+
 @pytest.fixture
 def ds01(tmp_path):
-    """DS-01 (plan sección 7.2): salas iniciales + 3 estudiantes de la sección 10."""
+    """DS-01: salas iniciales y tres estudiantes iniciales."""
     _nueva_bd(tmp_path)
     con = obtener_conexion()
-    for carne, nombre, correo, _ in ESTUDIANTES_INICIALES:
-        ok, msg = registrar_estudiante(carne, nombre, correo)
-        if not ok:  # el plan permite inserción directa y anotarlo en la evidencia
-            con.execute("INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)",
-                        (carne, nombre, correo, "activo"))
-            con.commit()
-    ok, msg = modificar_estudiante("C004567890", "Daniela Rojas", "daniela@universidad.ac.cr", "inactivo")
+
+    # La versión corregida ya carga los estudiantes iniciales.
+    assert con.execute("SELECT COUNT(*) FROM estudiantes").fetchone()[0] == 3
+
+    # Daniela debe permanecer inactiva para las pruebas.
+    ok, msg = modificar_estudiante(
+        "C004567890",
+        "Daniela Rojas",
+        "daniela@universidad.ac.cr",
+        "inactivo"
+    )
     assert ok, msg
+
     assert con.execute("SELECT COUNT(*) FROM salas").fetchone()[0] == 5
     assert con.execute("SELECT COUNT(*) FROM estudiantes").fetchone()[0] == 3
     assert con.execute("SELECT COUNT(*) FROM reservaciones").fetchone()[0] == 0
+
     yield
     cerrar_conexion()
+
 
 
 def lista():
