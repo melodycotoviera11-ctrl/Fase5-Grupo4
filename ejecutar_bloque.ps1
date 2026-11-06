@@ -36,13 +36,13 @@ if (-not (Test-Path $carpetaPruebas)) {
 
 New-Item -ItemType Directory -Force -Path $carpetaEvidencias | Out-Null
 
-$junit = "$carpetaEvidencias\junit_fase5_persona$Persona.xml"
-$salida = "$carpetaEvidencias\salida_pytest_fase5_persona$Persona.txt"
+$junit = "$carpetaEvidencias\junit_fase7_persona$Persona.xml"
+$salida = "$carpetaEvidencias\salida_pytest_fase7_persona$Persona.txt"
 
 Write-Host ""
 Write-Host "=== Ejecutando bloque: $Bloque ==="
 Write-Host "Persona: $Persona"
-Write-Host "Version Grupo 6: ee922b6"
+Write-Host "Version Grupo 6: $(git -C repo rev-parse --short HEAD)"
 Write-Host ""
 
 & ".\venv\Scripts\python.exe" -m pytest $carpetaPruebas -v --junitxml=$junit 2>&1 |
@@ -51,7 +51,7 @@ Write-Host ""
 $codigo = $LASTEXITCODE
 
 $csvTemporal = "pruebas\evidencias\resultados_fase5_persona$Persona.csv"
-$csvFinal = "$carpetaEvidencias\resultados_fase5_persona$Persona.csv"
+$csvFinal = "$carpetaEvidencias\resultados_fase7_persona$Persona.csv"
 
 if (Test-Path $csvTemporal) {
     Move-Item -Force $csvTemporal $csvFinal
