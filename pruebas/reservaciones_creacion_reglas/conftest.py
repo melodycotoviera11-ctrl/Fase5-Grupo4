@@ -97,16 +97,37 @@ def fecha_futura(dias=30):
 
 
 def _insertar_estudiantes_base(con):
+    """Prepara los tres estudiantes del escenario base.
+
+    Fase 7: desde el commit 92e1fd8 la inicialización del Grupo 6 ya carga
+    estos mismos estudiantes (corrección de BUG-INI-01). Por eso solo se
+    insertan los que falten y luego se verifica que los tres existan con
+    los datos y estados esperados, para no depender de la semilla en
+    silencio ni duplicar carnés.
+    """
     datos = [
         (CARNE_ACTIVO, "Andrea Solano", "andrea@universidad.ac.cr", "activo"),
         (CARNE_ACTIVO_2, "Carlos Méndez", "carlos@universidad.ac.cr", "activo"),
         (CARNE_INACTIVO, "Daniela Rojas", "daniela@universidad.ac.cr", "inactivo"),
     ]
-    con.executemany(
-        "INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)",
-        datos,
-    )
-    con.commit()
+    existentes = {
+        fila[0].upper()
+        for fila in con.execute("SELECT carne FROM estudiantes").fetchall()
+    }
+    faltantes = [d for d in datos if d[0].upper() not in existentes]
+    if faltantes:
+        con.executemany(
+            "INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)",
+            faltantes,
+        )
+        con.commit()
+    for carne, nombre, correo, estado in datos:
+        fila = con.execute(
+            "SELECT nombre_completo, correo, estado FROM estudiantes WHERE UPPER(carne)=?",
+            (carne.upper(),),
+        ).fetchone()
+        assert fila is not None, f"Falta el estudiante base {carne}"
+        assert tuple(fila) == (nombre, correo, estado), f"Datos distintos para {carne}: {tuple(fila)}"
 
 
 @pytest.fixture
