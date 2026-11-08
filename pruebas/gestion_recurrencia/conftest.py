@@ -23,13 +23,15 @@ def bd_p3(tmp_path):
         resultado = inicializar_base_datos()
         assert resultado.exito, resultado.mensaje
         con = obtener_conexion()
-        con.executemany(
-            'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
-            [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
-             ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
-             ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
-        )
-        con.commit()
+        # Fase 7: la versión corregida del Grupo 6 ya carga los 3 estudiantes
+        # iniciales, así que se verifican en lugar de insertarlos otra vez.
+        filas = con.execute(
+            'SELECT carne, estado FROM estudiantes ORDER BY carne'
+        ).fetchall()
+        esperado = [('A001234567', 'activo'),
+                    ('B009876543', 'activo'),
+                    ('C004567890', 'inactivo')]
+        assert [(f[0], f[1]) for f in filas] == esperado, filas
         yield con
     finally:
         cerrar_conexion()
