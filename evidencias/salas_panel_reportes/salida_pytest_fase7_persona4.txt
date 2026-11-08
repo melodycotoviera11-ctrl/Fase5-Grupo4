@@ -1,0 +1,227 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.13.2, pytest-9.1.1, pluggy-1.7.0 -- /Users/sergiomenacampos/Documents/Fase5-Grupo4/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/sergiomenacampos/Documents/Fase5-Grupo4
+collecting ... collected 42 items
+
+pruebas/salas_panel_reportes/test_fase7_persona4.py::test_CP_F7P4_01_codigo_en_minuscula_rechazado PASSED [  2%]
+pruebas/salas_panel_reportes/test_fase7_persona4.py::test_CP_F7P4_02_fallo_de_escritura_sin_temporal_residual PASSED [  4%]
+pruebas/salas_panel_reportes/test_fase7_persona4.py::test_CP_F7P4_03_panel_sin_ocupacion_tras_cancelar_serie PASSED [  7%]
+pruebas/salas_panel_reportes/test_fase7_persona4.py::test_CP_F7P4_04_ventana_del_panel_tras_cancelar_serie PASSED [  9%]
+pruebas/salas_panel_reportes/test_fase7_persona4.py::test_CP_F7P4_05_interfaz_sin_gestion_de_salas FAILED [ 11%]
+pruebas/salas_panel_reportes/test_fase7_persona4.py::test_CP_F7P4_06_integracion_sala_reserva_csv_panel_auditoria PASSED [ 14%]
+pruebas/salas_panel_reportes/test_fase7_persona4.py::test_CP_F7P4_07_codigo_en_minuscula_consistente_entre_modulos FAILED [ 16%]
+pruebas/salas_panel_reportes/test_rf04_consultar_salas.py::test_CP_RF04_01_muestra_campos_y_salas_iniciales PASSED [ 19%]
+pruebas/salas_panel_reportes/test_rf04_consultar_salas.py::test_CP_RF04_02_orden_por_codigo_e_incluye_fuera_de_servicio PASSED [ 21%]
+pruebas/salas_panel_reportes/test_rf04_consultar_salas.py::test_CP_RF04_03_consulta_no_modifica_datos PASSED [ 23%]
+pruebas/salas_panel_reportes/test_rf12_gestionar_salas.py::test_CP_RF12_01_registrar_sala_valida PASSED [ 26%]
+pruebas/salas_panel_reportes/test_rf12_gestionar_salas.py::test_CP_RF12_02_codigo_duplicado_rechazado PASSED [ 28%]
+pruebas/salas_panel_reportes/test_rf12_gestionar_salas.py::test_CP_RF12_03_codigo_equivalente_no_crea_duplicado FAILED [ 30%]
+pruebas/salas_panel_reportes/test_rf12_gestionar_salas.py::test_CP_RF12_04_capacidad_invalida_rechazada PASSED [ 33%]
+pruebas/salas_panel_reportes/test_rf12_gestionar_salas.py::test_CP_RF12_05_nombre_vacio_rechazado FAILED [ 35%]
+pruebas/salas_panel_reportes/test_rf12_gestionar_salas.py::test_CP_RF12_06_modificar_nombre_y_capacidad_conserva_codigo PASSED [ 38%]
+pruebas/salas_panel_reportes/test_rf12_gestionar_salas.py::test_CP_RF12_07_no_reduce_capacidad_bajo_reserva_futura PASSED [ 40%]
+pruebas/salas_panel_reportes/test_rf12_gestionar_salas.py::test_CP_RF12_08_reservas_canceladas_o_pasadas_no_limitan_capacidad PASSED [ 42%]
+pruebas/salas_panel_reportes/test_rf12_gestionar_salas.py::test_CP_RF12_09_fuera_de_servicio_conserva_historial_y_rechaza PASSED [ 45%]
+pruebas/salas_panel_reportes/test_rf12_gestionar_salas.py::test_CP_RF12_10_entradas_invalidas_sin_cambios PASSED [ 47%]
+pruebas/salas_panel_reportes/test_rf15_panel.py::test_CP_RF15_01_contenido_del_panel PASSED [ 50%]
+pruebas/salas_panel_reportes/test_rf15_panel.py::test_CP_RF15_02_filtros_combinados PASSED [ 52%]
+pruebas/salas_panel_reportes/test_rf15_panel.py::test_CP_RF15_03_estado_vacio_comprensible PASSED [ 54%]
+pruebas/salas_panel_reportes/test_rf15_panel.py::test_CP_RF15_04_se_actualiza_tras_crear_modificar_cancelar PASSED [ 57%]
+pruebas/salas_panel_reportes/test_rf15_panel.py::test_CP_RF15_05_filtros_invalidos_no_rompen PASSED [ 59%]
+pruebas/salas_panel_reportes/test_rf15_panel.py::test_CP_RF15_06_filtro_por_sala_registrada_por_rf12 FAILED [ 61%]
+pruebas/salas_panel_reportes/test_rf16_reportes.py::test_CP_RF16_01_rango_obligatorio PASSED [ 64%]
+pruebas/salas_panel_reportes/test_rf16_reportes.py::test_CP_RF16_02_fecha_final_anterior_y_limites PASSED [ 66%]
+pruebas/salas_panel_reportes/test_rf16_reportes.py::test_CP_RF16_03_contenido_y_rango_inclusivo PASSED [ 69%]
+pruebas/salas_panel_reportes/test_rf16_reportes.py::test_CP_RF16_04_cancelar_selector_no_crea_archivo PASSED [ 71%]
+pruebas/salas_panel_reportes/test_rf16_reportes.py::test_CP_RF16_05_error_de_escritura_sin_archivo_parcial PASSED [ 73%]
+pruebas/salas_panel_reportes/test_rf16_reportes.py::test_CP_RF16_06_rango_sin_reservaciones PASSED [ 76%]
+pruebas/salas_panel_reportes/test_rf17_auditoria.py::test_CP_RF17_01_creacion_registra_evento_completo PASSED [ 78%]
+pruebas/salas_panel_reportes/test_rf17_auditoria.py::test_CP_RF17_02_modificacion_y_cancelacion_registran PASSED [ 80%]
+pruebas/salas_panel_reportes/test_rf17_auditoria.py::test_CP_RF17_03_estudiantes_y_salas_registran PASSED [ 83%]
+pruebas/salas_panel_reportes/test_rf17_auditoria.py::test_CP_RF17_04_errores_de_validacion_no_se_registran PASSED [ 85%]
+pruebas/salas_panel_reportes/test_rf17_auditoria.py::test_CP_RF17_05_consulta_ordenada_y_estado_vacio PASSED [ 88%]
+pruebas/salas_panel_reportes/test_rf17_auditoria.py::test_CP_RF17_06_historial_no_editable_desde_interfaz PASSED [ 90%]
+pruebas/salas_panel_reportes/test_rf17_auditoria.py::test_CP_RF17_07_series_registran_ids_afectados FAILED [ 92%]
+pruebas/salas_panel_reportes/test_rnf08_codificacion.py::test_CP_RNF08_01_base_de_datos_conserva_tildes_y_enie PASSED [ 95%]
+pruebas/salas_panel_reportes/test_rnf08_codificacion.py::test_CP_RNF08_02_csv_utf8_conserva_tildes_y_enie PASSED [ 97%]
+pruebas/salas_panel_reportes/test_rnf09_rendimiento.py::test_CP_RNF09_01_consultas_bajo_dos_segundos PASSED [100%]
+
+=================================== FAILURES ===================================
+________________ test_CP_F7P4_05_interfaz_sin_gestion_de_salas _________________
+
+item = <Function test_CP_F7P4_05_interfaz_sin_gestion_de_salas>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_runtest_call(item):
+        c = item.funcargs.get("chk")
+        try:
+            resultado = yield
+        except BaseException:
+            if c:
+                c.registrar()
+            raise
+        if c:
+>           c.cerrar()
+
+pruebas/salas_panel_reportes/conftest.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <conftest.Chequeos object at 0x10a2f08a0>
+
+    def cerrar(self):
+        self.registrar()
+        if self.fallas:
+>           raise AssertionError("; ".join(self.fallas))
+E           AssertionError: la interfaz no permite registrar ni modificar salas (la observación persiste)
+
+pruebas/salas_panel_reportes/conftest.py:73: AssertionError
+________ test_CP_F7P4_07_codigo_en_minuscula_consistente_entre_modulos _________
+
+item = <Function test_CP_F7P4_07_codigo_en_minuscula_consistente_entre_modulos>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_runtest_call(item):
+        c = item.funcargs.get("chk")
+        try:
+            resultado = yield
+        except BaseException:
+            if c:
+                c.registrar()
+            raise
+        if c:
+>           c.cerrar()
+
+pruebas/salas_panel_reportes/conftest.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <conftest.Chequeos object at 0x10a334050>
+
+    def cerrar(self):
+        self.registrar()
+        if self.fallas:
+>           raise AssertionError("; ".join(self.fallas))
+E           AssertionError: S06 se rechaza como duplicado al registrar, pero al reservar se informa que la sala no existe; la disponibilidad de S06 informa que la sala no existe; la reservación de s06 no aparece al filtrar el panel por esa sala
+
+pruebas/salas_panel_reportes/conftest.py:73: AssertionError
+_____________ test_CP_RF12_03_codigo_equivalente_no_crea_duplicado _____________
+
+item = <Function test_CP_RF12_03_codigo_equivalente_no_crea_duplicado>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_runtest_call(item):
+        c = item.funcargs.get("chk")
+        try:
+            resultado = yield
+        except BaseException:
+            if c:
+                c.registrar()
+            raise
+        if c:
+>           c.cerrar()
+
+pruebas/salas_panel_reportes/conftest.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <conftest.Chequeos object at 0x10a2cf070>
+
+    def cerrar(self):
+        self.registrar()
+        if self.fallas:
+>           raise AssertionError("; ".join(self.fallas))
+E           AssertionError: se registró ' S01 ', equivalente a S01, como una sala distinta; se registró 'S01 ', equivalente a S01, como una sala distinta; la consulta de salas quedó con códigos equivalentes duplicados
+
+pruebas/salas_panel_reportes/conftest.py:73: AssertionError
+____________________ test_CP_RF12_05_nombre_vacio_rechazado ____________________
+
+item = <Function test_CP_RF12_05_nombre_vacio_rechazado>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_runtest_call(item):
+        c = item.funcargs.get("chk")
+        try:
+            resultado = yield
+        except BaseException:
+            if c:
+                c.registrar()
+            raise
+        if c:
+>           c.cerrar()
+
+pruebas/salas_panel_reportes/conftest.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <conftest.Chequeos object at 0x10a2b8870>
+
+    def cerrar(self):
+        self.registrar()
+        if self.fallas:
+>           raise AssertionError("; ".join(self.fallas))
+E           AssertionError: se registró una sala con nombre ''; se modificó S01 dejándola con nombre ''; se registró una sala con nombre '   '; se modificó S01 dejándola con nombre '   '
+
+pruebas/salas_panel_reportes/conftest.py:73: AssertionError
+_____________ test_CP_RF15_06_filtro_por_sala_registrada_por_rf12 ______________
+
+item = <Function test_CP_RF15_06_filtro_por_sala_registrada_por_rf12>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_runtest_call(item):
+        c = item.funcargs.get("chk")
+        try:
+            resultado = yield
+        except BaseException:
+            if c:
+                c.registrar()
+            raise
+        if c:
+>           c.cerrar()
+
+pruebas/salas_panel_reportes/conftest.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <conftest.Chequeos object at 0x10a4248a0>
+
+    def cerrar(self):
+        self.registrar()
+        if self.fallas:
+>           raise AssertionError("; ".join(self.fallas))
+E           AssertionError: la reserva de la sala 's06' no aparece al filtrar el panel por esa sala
+
+pruebas/salas_panel_reportes/conftest.py:73: AssertionError
+________________ test_CP_RF17_07_series_registran_ids_afectados ________________
+
+item = <Function test_CP_RF17_07_series_registran_ids_afectados>
+
+    @pytest.hookimpl(wrapper=True)
+    def pytest_runtest_call(item):
+        c = item.funcargs.get("chk")
+        try:
+            resultado = yield
+        except BaseException:
+            if c:
+                c.registrar()
+            raise
+        if c:
+>           c.cerrar()
+
+pruebas/salas_panel_reportes/conftest.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <conftest.Chequeos object at 0x10a23cd70>
+
+    def cerrar(self):
+        self.registrar()
+        if self.fallas:
+>           raise AssertionError("; ".join(self.fallas))
+E           AssertionError: la auditoría no identifica las reservaciones ['R0001', 'R0002', 'R0003'] creadas o canceladas en la serie
+
+pruebas/salas_panel_reportes/conftest.py:73: AssertionError
+- generated xml file: /Users/sergiomenacampos/Documents/Fase5-Grupo4/evidencias/salas_panel_reportes/junit_fase7_persona4.xml -
+=========================== short test summary info ============================
+FAILED pruebas/salas_panel_reportes/test_fase7_persona4.py::test_CP_F7P4_05_interfaz_sin_gestion_de_salas
+FAILED pruebas/salas_panel_reportes/test_fase7_persona4.py::test_CP_F7P4_07_codigo_en_minuscula_consistente_entre_modulos
+FAILED pruebas/salas_panel_reportes/test_rf12_gestionar_salas.py::test_CP_RF12_03_codigo_equivalente_no_crea_duplicado
+FAILED pruebas/salas_panel_reportes/test_rf12_gestionar_salas.py::test_CP_RF12_05_nombre_vacio_rechazado
+FAILED pruebas/salas_panel_reportes/test_rf15_panel.py::test_CP_RF15_06_filtro_por_sala_registrada_por_rf12
+FAILED pruebas/salas_panel_reportes/test_rf17_auditoria.py::test_CP_RF17_07_series_registran_ids_afectados
+========================= 6 failed, 36 passed in 1.92s =========================
