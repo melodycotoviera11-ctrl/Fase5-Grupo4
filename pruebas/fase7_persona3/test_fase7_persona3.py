@@ -17,7 +17,6 @@ from src.model.panel.servicio import consultar_panel
 
 
 def _foto(con):
-    """Copia completa de todas las tablas (reservaciones, auditoria, etc.)."""
     tablas = [
         f[0] for f in con.execute(
             "SELECT name FROM sqlite_master "
@@ -107,33 +106,42 @@ def test_integracion_serie_cancelacion_panel_disponibilidad(bd_p3):
 
     def panel(indice):
         resp = consultar_panel(fecha=fechas[indice], codigo_sala='S01')
-        assert 'exito' not in resp or resp['exito'] is True, resp
+        assert resp.get('exito') is True, resp
         return resp
 
+    def proximas(indice):
+        return [r['id'] for r in panel(indice)['proximas_reservaciones']]
+
+    def ocupacion_s01(indice):
+        fila = next(s for s in panel(indice)['ocupacion_salas'] if s['codigo'] == 'S01')
+        return fila['reservaciones_activas']
+
     print("\nINTEGRACION")
-    # Paso 1: serie creada, tres franjas ocupadas
     estado1 = [libre(i) for i in range(3)]
     print("  Paso 1 - disponibles tras crear serie (esperado False x3):", estado1)
-    print("  Panel fecha 1:", panel(0))
+    print("  Paso 1 - proximas en el panel:", proximas(0))
+    print("  Paso 1 - ocupacion_salas S01 (reservaciones_activas):", ocupacion_s01(0))
     assert estado1 == [False, False, False]
+    assert proximas(0) == ids
 
-    # Paso 2: cancelar una ocurrencia
     assert cancelar_reservacion(ids[1])['exito'] is True
     estado2 = [libre(i) for i in range(3)]
     estados = [_reservas()[i]['estado'] for i in ids]
     print("  Paso 2 - disponibles tras cancelar la 2da (esperado F,T,F):", estado2)
-    print("  Estados:", estados)
-    print("  Panel fecha 2:", panel(1))
+    print("  Paso 2 - estados:", estados)
+    print("  Paso 2 - proximas en el panel:", proximas(1))
     assert estado2 == [False, True, False]
     assert estados == ['activa', 'cancelada', 'activa']
+    assert proximas(1) == [ids[0], ids[2]]
 
-    # Paso 3: cancelar la serie completa desde la primera ocurrencia
     resp = cancelar_ocurrencias_futuras(ids[0])
     assert resp['exito'] is True, resp
     estado3 = [libre(i) for i in range(3)]
     estados3 = [_reservas()[i]['estado'] for i in ids]
     print("  Paso 3 - disponibles tras cancelar la serie (esperado True x3):", estado3)
-    print("  Estados:", estados3)
-    print("  Panel fecha 1:", panel(0))
+    print("  Paso 3 - estados:", estados3)
+    print("  Paso 3 - proximas en el panel:", proximas(0))
     assert estado3 == [True, True, True]
     assert estados3 == ['cancelada', 'cancelada', 'cancelada']
+    assert proximas(0) == []
+    
