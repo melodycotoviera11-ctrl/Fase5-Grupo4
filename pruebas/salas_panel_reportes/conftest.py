@@ -95,6 +95,32 @@ def pytest_runtest_call(item):
 
 
 # ---------------------------------------------------------------- datos
+def _asegurar_estudiantes_base(con):
+    """Deja en la base los 3 estudiantes de referencia, sin duplicarlos.
+
+    Fase 7: desde el commit 92e1fd8 la inicialización del Grupo 6 ya carga
+    estos mismos estudiantes (corrección de BUG-INI-01). Solo se insertan
+    los que falten y luego se verifica que los tres existan con los datos
+    y estados esperados. En la versión de Fase 5 (ee922b6) se insertan
+    los tres, como antes.
+    """
+    existentes = {fila[0].upper() for fila in con.execute("SELECT carne FROM estudiantes")}
+    faltantes = [e for e in ESTUDIANTES_INICIALES if e[0].upper() not in existentes]
+    if faltantes:
+        con.executemany(
+            "INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)",
+            faltantes,
+        )
+        con.commit()
+    for carne, nombre, correo, estado in ESTUDIANTES_INICIALES:
+        fila = con.execute(
+            "SELECT nombre_completo, correo, estado FROM estudiantes WHERE UPPER(carne) = ?",
+            (carne.upper(),),
+        ).fetchone()
+        assert fila is not None, f"Falta el estudiante base {carne}"
+        assert tuple(fila) == (nombre, correo, estado), f"Datos distintos para {carne}: {tuple(fila)}"
+
+
 @pytest.fixture
 def bd_p4(tmp_path):
     """DS-01: salas iniciales del sistema + 3 estudiantes de la sección 10."""
@@ -104,11 +130,7 @@ def bd_p4(tmp_path):
     resultado = inicializar_base_datos()
     assert resultado.exito, resultado.mensaje
     con = obtener_conexion()
-    con.executemany(
-        "INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)",
-        ESTUDIANTES_INICIALES,
-    )
-    con.commit()
+    _asegurar_estudiantes_base(con)
     yield con
     cerrar_conexion()
     configurar_ruta_base_datos(ruta_original)
@@ -124,12 +146,17 @@ def pytest_sessionstart(session):
 def pytest_runtest_makereport(item, call):
     out = yield
     rep = out.get_result()
-    if rep.when == "call" or (rep.when == "setup" and rep.failed):
+    if rep.when == "call" or (rep.when == "setup" and (rep.failed or rep.skipped)):
         m = re.search(r"test_(CP_[A-Z0-9]+_\d+)", item.name)
         if not m:
             return
         cid = m.group(1).replace("CP_", "CP-").replace("_", "-")
-        estado = "Aprobado" if rep.passed else ("Bloqueado" if rep.when == "setup" else "Fallido")
+        if rep.passed:
+            estado = "Aprobado"
+        elif rep.skipped:
+            estado = "Omitido"  # p. ej., sin pantalla para la prueba de interfaz
+        else:
+            estado = "Bloqueado" if rep.when == "setup" else "Fallido"
         fila = {
             "ID": cid,
             "Estado": estado,
