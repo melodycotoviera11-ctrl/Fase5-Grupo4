@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="25" failures="0" skipped="0" tests="25" time="2.936" timestamp="2026-11-07T23:54:07.842514-06:00" hostname="Pames_Lenovo"><testcase classname="pruebas.gestion_recurrencia.test_rf06_consultar_reservaciones" name="test_CP_RF06_01_historial_activo_cancelado_y_ordenado" time="0.126"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF06_01_historial_acti0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf06_consultar_reservaciones" name="test_CP_RF06_02_consulta_sin_reservaciones" time="0.099"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF06_02_consulta_sin_r0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf07_buscar_estudiante" name="test_CP_RF07_01_busca_reservaciones_por_carne" time="0.096"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF07_01_busca_reservac0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf07_buscar_estudiante" name="test_CP_RF07_02_estudiante_sin_reservaciones" time="0.094"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF07_02_estudiante_sin0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf07_buscar_estudiante" name="test_CP_RF07_03_busqueda_ignora_mayusculas_minusculas" time="0.104"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF07_03_busqueda_ignor0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf07_buscar_estudiante" name="test_CP_RF07_04_carne_inexistente" time="0.102"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF07_04_carne_inexiste0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf09_cancelar_reservacion" name="test_CP_RF09_01_cancela_reserva_activa_y_libera_horario" time="0.097"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF09_01_cancela_reserv0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf09_cancelar_reservacion" name="test_CP_RF09_02_rechaza_cancelacion_repetida" time="0.088"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF09_02_rechaza_cancel0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf09_cancelar_reservacion" name="test_CP_RF09_03_rechaza_id_inexistente" time="0.097"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF09_03_rechaza_id_ine0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf13_modificar_reservacion" name="test_CP_RF13_01_modificacion_valida_conserva_id" time="0.084"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF13_01_modificacion_v0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf13_modificar_reservacion" name="test_CP_RF13_02_conflicto_preserva_datos_originales" time="0.083"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF13_02_conflicto_pres0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf13_modificar_reservacion" name="test_CP_RF13_03_no_modifica_reservacion_cancelada" time="0.085"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF13_03_no_modifica_re0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf13_modificar_reservacion" name="test_CP_RF13_04_no_conflicto_con_la_misma_reserva" time="0.102"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF13_04_no_conflicto_c0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf13_modificar_reservacion" name="test_CP_RF13_05_rechaza_capacidad_superada" time="0.109"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF13_05_rechaza_capaci0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf14_recurrencia" name="test_CP_RF14_01_previsualiza_serie_sin_guardar" time="0.104"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF14_01_previsualiza_s0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf14_recurrencia" name="test_CP_RF14_02_crea_serie_tres_ocurrencias" time="0.114"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF14_02_crea_serie_tre0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf14_recurrencia" name="test_CP_RF14_03_rechaza_una_y_nueve_semanas" time="0.097"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF14_03_rechaza_una_y_0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf14_recurrencia" name="test_CP_RF14_04_conflicto_no_guarda_serie" time="0.096"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF14_04_conflicto_no_g0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf14_recurrencia" name="test_CP_RF14_05_cancela_solo_una_ocurrencia" time="0.107"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF14_05_cancela_solo_u0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rf14_recurrencia" name="test_CP_RF14_06_cancela_ocurrencias_futuras" time="0.103"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RF14_06_cancela_ocurre0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rn12_cancelaciones" name="test_CP_RN12_01_cancelada_permanece_en_historial" time="0.101"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RN12_01_cancelada_perm0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rn12_cancelaciones" name="test_CP_RN12_02_cancelacion_libera_horario" time="0.095"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RN12_02_cancelacion_li0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rn13_identificadores" name="test_CP_RN13_01_no_reutiliza_ids_tras_reiniciar" time="0.094"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RN13_01_no_reutiliza_i0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rnf06_integridad" name="test_CP_RNF06_01_modificacion_rechazada_conserva_originales" time="0.094"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RNF06_01_modificacion_0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase><testcase classname="pruebas.gestion_recurrencia.test_rnf06_integridad" name="test_CP_RNF06_02_recurrencia_rechazada_no_deja_parciales" time="0.110"><error message="failed on setup with &quot;sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne&quot;">tmp_path = WindowsPath('C:/Users/pamel/AppData/Local/Temp/pytest-of-pamel/pytest-5/test_CP_RNF06_02_recurrencia_r0')
+
+    @pytest.fixture
+    def bd_p3(tmp_path):
+        anterior = obtener_ruta_base_datos()
+        cerrar_conexion()
+        configurar_ruta_base_datos(tmp_path / 'persona3.db')
+        try:
+            resultado = inicializar_base_datos()
+            assert resultado.exito, resultado.mensaje
+            con = obtener_conexion()
+&gt;           con.executemany(
+                'INSERT INTO estudiantes (carne, nombre_completo, correo, estado) VALUES (?,?,?,?)',
+                [('A001234567', 'Andrea Solano', 'andrea@universidad.ac.cr', 'activo'),
+                 ('B009876543', 'Carlos Méndez', 'carlos@universidad.ac.cr', 'activo'),
+                 ('C004567890', 'Daniela Rojas', 'daniela@universidad.ac.cr', 'inactivo')]
+            )
+E           sqlite3.IntegrityError: UNIQUE constraint failed: estudiantes.carne
+
+pruebas\gestion_recurrencia\conftest.py:26: IntegrityError</error></testcase></testsuite></testsuites>
