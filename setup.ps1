@@ -3,7 +3,7 @@ $ErrorActionPreference = "Stop"
 $repoUrl = "https://github.com/AlejandroPenarandaSoto/proyecto-qa-II-semestre-2026.git"
 $commitGrupo6 = "92e1fd8"
 
-Write-Host "=== Configurando entorno de pruebas de Fase 5 ==="
+Write-Host "=== Configurando entorno de pruebas (Fase 7) ==="
 
 if (-not (Test-Path "venv")) {
     Write-Host "Creando entorno virtual..."
